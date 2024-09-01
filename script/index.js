@@ -1,5 +1,5 @@
-var unArray = ["Gabriele Avila", "exemploadm"];
-var pwArray = ["i&Us01.GA", "123"];
+var unArray = ["Gabriele Avila", "exemploadm", "Hamilton Lazaro"];
+var pwArray = ["i&Us01.GA", "123", "i&Us02.HL"];
 
 function login(event) {
 event.preventDefault();
