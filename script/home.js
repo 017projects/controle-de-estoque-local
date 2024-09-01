@@ -292,6 +292,7 @@ const updateQuantity = (id, change) => {
 }
 
 const importCSV = () => {
+    hasUnsavedChanges = false
     const fileInput = document.getElementById('csvFileInput');
     const file = fileInput.files[0];
     
