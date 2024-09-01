@@ -149,6 +149,24 @@ button:hover {
     font-size: 0.9em;
 }
 
+footer{
+    width: 100%;
+    transform: translateY(49dvh);
+    height: auto;
+    background-color: darkgray;
+    color: rgb(62, 62, 62);
+    text-align: end;
+}
+
+footer p a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: rubik;
+    &:hover{
+        color: rgb(186, 64, 64);
+    }
+}
+
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
     .form-group{
@@ -265,6 +283,10 @@ button:hover {
     <div style="display: none;" id="loginForm">
 
     </div>
+
+    <footer>
+        <p><a href="https://linktr.ee/017_us" target="_blank">Alexandre Miranda</a>&ensp;©Todos os direitos reservados</p>
+    </footer>
 
     <script src="script/home.js"></script>
     <script src="script/index.js"></script>
