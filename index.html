@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Usuário" required>
+            <div class="cwpass">
+            <input type="password" id="password" placeholder="Senha" required>
+            <label class="switch">
+                <input type="checkbox" id="password-sw"/>
+                <span>
+                  <em></em>
+                  <strong></strong>
+                </span>
+            </label>
+            </div>
+
+            <button type="submit" onclick="login(event)">Entrar</button>
+        </form>
+        <div id="error" style="color: red; display: none;"></div>
+    </div>
+
+    <a id="showUsera"></a>
+    <script src="script/index.js"></script>
+    <script src="script/sw-password.js"></script>
+</body>
+</html>
