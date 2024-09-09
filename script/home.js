@@ -342,7 +342,7 @@ const logout = document.getElementById('logout-user').addEventListener('click', 
 
 window.addEventListener('beforeunload', (event) => {
     if (hasUnsavedChanges == false) {
-        const confirmationMessage = exportToCSV();
+        exportToCSV();
         hasUnsavedChanges == true;
         localStorage.removeItem('token'); // Remove o token
         }
