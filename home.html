@@ -260,7 +260,9 @@ footer p a{
     <h1>Controle de Estoque</h1>
 
     <div class="form-group">
-        <input type="text" id="itemName" placeholder="Nome do Item" onkeyup="searchItem()" required>
+        <label for="databaseSelect">Selecionar Lista:</label>
+        <select id="databaseSelect" onchange="changeDatabase()"></select>
+        <input type="text" id="itemName" placeholder="Nome do Item" oninput="searchItems()" required>
         <span id="nameError" class="error"></span>
         <input type="number" id="itemQuantity" placeholder="Quantidade" required>
         <span id="quantityError" class="error"></span>
@@ -268,15 +270,16 @@ footer p a{
         <button id="addButton" onclick="addItem()">Adicionar Item</button>
         <button id="saveButton" style="display:none;" onclick="saveEdit()">Salvar Edição</button>
     </div>
+    
     <div class="csv-group">
         <div class="csv-group-a">
-        <label id="exportBtn">
-            <b>Exportar para CSV</b>
-        </label>
-        <label for="csvFileInput" class="csvFileInput">
-            <b>Importar arquivo CSV</b>
-            <input type="file" id="csvFileInput" accept=".csv" onchange="importCSV()" />
-        </label>
+            <label id="exportBtn">
+                <b>Exportar para CSV</b>
+            </label>
+            <label for="csvFileInput" class="csvFileInput">
+                <b>Importar arquivo CSV</b>
+                <input type="file" id="csvFileInput" accept=".csv" onchange="importCSV()" />
+            </label>
         </div>
         <div class="csv-group-b">
             <label id="logout-user">
@@ -296,13 +299,8 @@ footer p a{
                 <th>Ações</th>
             </tr>
         </thead>
-        <tbody>
-        </tbody>
+        <tbody></tbody>
     </table>
-
-    <div style="display: none;" id="loginForm">
-
-    </div>
 
     <footer>
         <p><a href="https://linktr.ee/017_us" target="_blank">Alexandre Miranda</a>&ensp;©Todos os direitos reservados</p>
@@ -310,6 +308,5 @@ footer p a{
 
     <script src="script/home.js"></script>
     <script src="script/index.js"></script>
-
 </body>
 </html>
