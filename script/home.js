@@ -1,3 +1,4 @@
+
 function verificarLogin() {
     const usuarioAutenticado = localStorage.getItem('token');
     if (!usuarioAutenticado) {
