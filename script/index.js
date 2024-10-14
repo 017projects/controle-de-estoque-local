@@ -1,5 +1,5 @@
-var unArray = ["Gabriele Avila", "017_us", "Hamilton Lazaro", "Luan Silva", "Matheus Maia"];
-var pwArray = ["i&Us01.GA", "i&Us00.ADM", "i&Us02.HL", "i&Us03.LS", "i&Us04.MM"];
+var unArray = ["Gabriele Avila", "017_us", "Hamilton Lazaro", "Luan Silva", "Matheus Maia", "André Luiz"];
+var pwArray = ["i&Us01.GA", "i&Us00.ADM", "i&Us02.HL", "i&Us03.LS", "i&Us04.MM", "Andre777"];
 
 const jsonArray = [
     {ex1: "gabi", ex2: "22", ex3: "10/11/2024"}
