@@ -9,7 +9,7 @@ import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc  } from "http
 var defaultUpdateTime = 1800000;
 
 if(ex1 === "Gabriele Avila"){
-    defaultUpdateTime = 10000
+    defaultUpdateTime = 600000;
 }
 
 
