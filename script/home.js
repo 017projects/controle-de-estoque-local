@@ -7,10 +7,20 @@ function verificarLogin() {
 }
 verificarLogin();
 
+const acData = new Date();
+const aDia = acData.getDay(); 
+const aMes = acData.getMonth();
+const aAno = acData.getFullYear();
+const aHoras = acData.getHours();
+const aMinuto = acData.getMinutes();
+const aSegundo = acData.getSeconds();
+
+const sobe_data =(aDia+"/"+aMes+"/"+aAno+" - "+aHoras+":"+aMinuto+":"+aSegundo)
+
 const c_logout = document.createElement('a');
 c_logout.id = 'logout-user'
 c_logout.innerText = 'Sair'
-
+    
 const suser = document.querySelector('#show-savedata');
 suser.innerHTML = 'Bem vindo, '+ex1.bold();
 suser.appendChild(c_logout);
