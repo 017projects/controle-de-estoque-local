@@ -76,7 +76,7 @@ const sendDataToFirestore = async (data) => {
             }
         }
     } catch (error) {
-        console.error("Erro ao enviar dados:", error);
+        alert("Erro ao enviar dados:", error);
     }
 };
 
@@ -92,7 +92,7 @@ const sendDataToFirestore2 = async (data) => {
             }
         }
     } catch (error) {
-        console.error("Erro ao enviar dados:", error);
+        alert("Erro ao enviar dados:", error);
     }
 };
 
@@ -108,7 +108,7 @@ const sendDataToFirestore3 = async (data) => {
             }
         }
     } catch (error) {
-        console.error("Erro ao enviar dados:", error);
+        alert("Erro ao enviar dados:", error);
     }
 };
 
@@ -118,7 +118,17 @@ const sendDataToFirestore3 = async (data) => {
 // Configurando o evento de clique no botão
 document.getElementById('sendDataButton').addEventListener('click', function() {
 
-    
+const c_div_alert  = document.createElement('div');
+c_div_alert.id = 'div_alert_pass'
+
+const b_div_alert  = document.createElement('div');
+b_div_alert.id = 'b_div_alert_pass'
+
+const c_div_alert_ok = document.createElement('button')
+c_div_alert_ok.id = 'btn_ok_alert'
+
+const c_div_alert_cc = document.createElement('button')
+c_div_alert_cc.id = 'btn_cc_alert'
 
 var objectStore = db.transaction('Lista 1').objectStore('Lista 1');
 
@@ -140,7 +150,16 @@ objectStore.openCursor().onsuccess = function(event) {
 
   }
   else {
-        alert("Erro ao enviar lista 3!");
+        console.log("Lista 1 salva com sucesso!");
+        document.querySelector('#show-savedata').parentNode.insertBefore(c_div_alert, document.querySelector('h1'));
+        document.getElementById('div_alert_pass').appendChild(b_div_alert);
+        b_div_alert.innerHTML = '<p>Todas as listas foram enviadas com sucesso! <br>Se houver necessidade de recuperação, <a href="https://linktr.ee/017_us" target="_blank"> contatar o dev </a></p>';
+        b_div_alert.appendChild(c_div_alert_ok);
+        c_div_alert_ok.innerText = 'Ok'
+        document.getElementById('btn_ok_alert').addEventListener('click', function(){
+            document.querySelector('body').removeChild(c_div_alert);
+        })
+
   }
 }
 
@@ -164,7 +183,7 @@ objectStore2.openCursor().onsuccess = function(event) {
 
   }
   else {
-        alert("Dados salvos com sucesso!");
+        console.log("Lista 2 salva com sucesso!");
   }
 }
 
@@ -189,16 +208,37 @@ objectStore3.openCursor().onsuccess = function(event) {
 
   }
   else {
-        alert("Dados salvos com sucesso!");
+        console.log("Lista 3 salva com sucesso!");
   }
 }
 
 
+});
 
+/* setInterval(() => {
+    var objectStore = db.transaction('Lista 1').objectStore('Lista 1');
 
+objectStore.openCursor().onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    const jsonArray1 = [
+        { id: cursor.key, nome: cursor.value.name, quantidade: cursor.value.quantity, data_produto: cursor.value.date, ip: ipAddressv6}
+    ]
+    const executeop = async () =>{
+        await clearCollection(ex1+", Lista 1");
+        await sendDataToFirestore(jsonArray1)
+    }
+        
+    cursor.continue();
+    executeop();
+    console.log(jsonArray1);
+    console.log(currentDatabase);
 
-
-
-}); 
+  }
+  else {
+        alert("Erro ao enviar lista 3!");
+  }
+}
+}, 100000); */
 
 
