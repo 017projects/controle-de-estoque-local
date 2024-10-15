@@ -5,6 +5,14 @@ import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc  } from "http
 //https://firebase.google.com/docs/web/setup#available-libraries
 
 //Your web app's Firebase configuration
+
+var defaultUpdateTime = 1800000;
+
+if(ex1 === "Gabriele Avila"){
+    defaultUpdateTime = 10000
+}
+
+
 const firebaseConfig = {
       apiKey: "AIzaSyC5B4Hkp2Uca5OXYvWBOtsNGpEluHrErZQ",
       authDomain: "controle-de-estoque-ga.firebaseapp.com",
@@ -17,10 +25,6 @@ const firebaseConfig = {
     // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db1 = getFirestore(app); // Inicializando Firestore
-
-
-
-    
 
 const clearCollection = async (collectionName) => {
 const collectionRef = collection(db1, ex1+", Lista 1");
@@ -127,8 +131,8 @@ b_div_alert.id = 'b_div_alert_pass'
 const c_div_alert_ok = document.createElement('button')
 c_div_alert_ok.id = 'btn_ok_alert'
 
-const c_div_alert_cc = document.createElement('button')
-c_div_alert_cc.id = 'btn_cc_alert'
+const footer = document.createElement('footer')
+footer.innerHTML = '<p><a href="https://linktr.ee/017_us" target="_blank">Alexandre Miranda</a>&ensp;©Todos os direitos reservados</p>'
 
 var objectStore = db.transaction('Lista 1').objectStore('Lista 1');
 
@@ -136,7 +140,14 @@ objectStore.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
   if (cursor) {
     const jsonArray1 = [
-        { id: cursor.key, nome: cursor.value.name, quantidade: cursor.value.quantity, data_produto: cursor.value.date, ip: ipAddressv6}
+        {
+        id: cursor.key,
+        nome: cursor.value.name,
+        quantidade: cursor.value.quantity,
+        data_produto: cursor.value.date,
+        ipV6: ipAddressv6,
+        ipv4: ipAddressv4,
+        horario_envio: sobe_data}
     ]
     const executeop = async () =>{
         await clearCollection(ex1+", Lista 1");
@@ -151,6 +162,7 @@ objectStore.openCursor().onsuccess = function(event) {
   }
   else {
         console.log("Lista 1 salva com sucesso!");
+        document.querySelector('body').removeChild(document.querySelector('footer'));
         document.querySelector('#show-savedata').parentNode.insertBefore(c_div_alert, document.querySelector('h1'));
         document.getElementById('div_alert_pass').appendChild(b_div_alert);
         b_div_alert.innerHTML = '<p>Todas as listas foram enviadas com sucesso! <br>Se houver necessidade de recuperação, <a href="https://linktr.ee/017_us" target="_blank"> contatar o dev </a></p>';
@@ -158,6 +170,7 @@ objectStore.openCursor().onsuccess = function(event) {
         c_div_alert_ok.innerText = 'Ok'
         document.getElementById('btn_ok_alert').addEventListener('click', function(){
             document.querySelector('body').removeChild(c_div_alert);
+            document.querySelector('body').appendChild(footer)
         })
 
   }
@@ -169,7 +182,14 @@ objectStore2.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
   if (cursor) {
     const jsonArray1 = [
-        { id: cursor.key, nome: cursor.value.name, quantidade: cursor.value.quantity, data_produto: cursor.value.date, ip: ipAddressv6}
+        { 
+        id: cursor.key,
+        nome: cursor.value.name,
+        quantidade: cursor.value.quantity,
+        data_produto: cursor.value.date,
+        ipv4: ipAddressv4,
+        ipV6: ipAddressv6,
+        horario_envio: sobe_data}
     ]
     const executeop = async () =>{
         await clearCollection2(ex1+", Lista 2");
@@ -194,7 +214,14 @@ objectStore3.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
   if (cursor) {
     const jsonArray1 = [
-        { id: cursor.key, nome: cursor.value.name, quantidade: cursor.value.quantity, data_produto: cursor.value.date, ip: ipAddressv6}
+        { 
+        id: cursor.key, 
+        nome: cursor.value.name,
+        quantidade: cursor.value.quantity,
+        data_produto: cursor.value.date,
+        ipV4: ipAddressv4,
+        ipV6: ipAddressv6,
+        horario_envio: sobe_data}
     ]
     const executeop = async () =>{
         await clearCollection3(ex1+", Lista 3");
@@ -215,14 +242,22 @@ objectStore3.openCursor().onsuccess = function(event) {
 
 });
 
-/* setInterval(() => {
+setInterval(() => {
     var objectStore = db.transaction('Lista 1').objectStore('Lista 1');
 
 objectStore.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
   if (cursor) {
     const jsonArray1 = [
-        { id: cursor.key, nome: cursor.value.name, quantidade: cursor.value.quantity, data_produto: cursor.value.date, ip: ipAddressv6}
+        {
+            id: cursor.key,
+            nome: cursor.value.name,
+            quantidade: cursor.value.quantity,
+            data_produto: cursor.value.date,
+            ipV6: ipAddressv6,
+            ipv4: ipAddressv4,
+            horario_envio: sobe_data
+        }
     ]
     const executeop = async () =>{
         await clearCollection(ex1+", Lista 1");
@@ -236,9 +271,81 @@ objectStore.openCursor().onsuccess = function(event) {
 
   }
   else {
-        alert("Erro ao enviar lista 3!");
+        document.getElementById('show-savedata').innerHTML = 'Dados salvos automaticamente com sucesso! :)';
+
+        setTimeout(() => {
+            suser.innerHTML = 'Bem vindo, '+ex1.bold();
+            suser.appendChild(c_logout);
+        }, 3000);
   }
 }
-}, 100000); */
+
+
+var objectStore2 = db.transaction('Lista 2').objectStore('Lista 2');
+
+objectStore2.openCursor().onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    const jsonArray1 = [
+        { 
+        id: cursor.key,
+        nome: cursor.value.name,
+        quantidade: cursor.value.quantity,
+        data_produto: cursor.value.date,
+        ipv4: ipAddressv4,
+        ipV6: ipAddressv6,
+        horario_envio: sobe_data}
+    ]
+    const executeop = async () =>{
+        await clearCollection2(ex1+", Lista 2");
+        await sendDataToFirestore2(jsonArray1)
+    }
+        
+    cursor.continue();
+    executeop();
+    console.log(jsonArray1);
+    console.log(currentDatabase);
+
+  }
+  else {
+        console.log("Lista 2 salva com sucesso!");
+  }
+}
+
+
+var objectStore3 = db.transaction('Lista 3').objectStore('Lista 3');
+
+objectStore3.openCursor().onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    const jsonArray1 = [
+        { 
+        id: cursor.key, 
+        nome: cursor.value.name,
+        quantidade: cursor.value.quantity,
+        data_produto: cursor.value.date,
+        ipV4: ipAddressv4,
+        ipV6: ipAddressv6,
+        horario_envio: sobe_data}
+    ]
+    const executeop = async () =>{
+        await clearCollection3(ex1+", Lista 3");
+        await sendDataToFirestore3(jsonArray1)
+    }
+        
+    cursor.continue();
+    executeop();
+    console.log(jsonArray1);
+    console.log(currentDatabase);
+
+  }
+  else {
+        console.log("Lista 3 salva com sucesso!");
+  }
+}
+
+
+
+}, defaultUpdateTime);
 
 
