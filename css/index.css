@@ -212,7 +212,7 @@ box-sizing: border-box;
     .login-container {
         width: 80dvw;
         height: auto;
-        background: white;
+        background: white   (164, 26, 26);
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
