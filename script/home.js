@@ -7,6 +7,14 @@ function verificarLogin() {
 }
 verificarLogin();
 
+const c_logout = document.createElement('a');
+c_logout.id = 'logout-user'
+c_logout.innerText = 'Sair'
+
+const suser = document.querySelector('#show-savedata');
+suser.innerHTML = 'Bem vindo, '+ex1.bold();
+suser.appendChild(c_logout);
+
 var hasUnsavedChanges = true;
 document.getElementById('itemDate').value = new Date().toISOString().split('T')[0];
 
@@ -285,6 +293,9 @@ window.addEventListener('beforeunload', (event) => {
         hasUnsavedChanges = true;
     }
 });
+
+
+
 
 openDatabase();
 initDatabase();
