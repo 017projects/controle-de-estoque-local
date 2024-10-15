@@ -69,8 +69,8 @@ tr:hover {
 }
 
 #b_div_alert_pass{
-    width: 70%;
-    height: 40%;
+    width: 40%;
+    height: 20%;
     background-color: rgb(36, 36, 36);
     border-radius: 2em;
     text-align: center;
@@ -89,6 +89,8 @@ tr:hover {
 
 #btn_ok_alert{
     border-radius: 2em;
+    width: 20em;
+    height: 3em;
 }
 
 button {
@@ -275,6 +277,42 @@ footer p a{
         margin-bottom: 1em;
     }
 
+    #div_alert_pass{
+        background-color: rgba(34, 34, 34, 0.596);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #b_div_alert_pass{
+        width: 70%;
+        height: 40%;
+        background-color: rgb(36, 36, 36);
+        border-radius: 2em;
+        text-align: center;
+        color: white;
+        padding: 1em;
+        font-size: 1.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        & a{
+            text-decoration: none;
+            color: rgb(255, 88, 88);
+        }
+    }
+    
+    #btn_ok_alert{
+        border-radius: 2em;
+    }
+
     label[for='databaseSelect']{
         margin-bottom: .5em;
     }
@@ -298,6 +336,17 @@ footer p a{
 
     th, td {
         padding: 8px; /* Reduz o padding das células */
+    }
+
+    td button:not(:last-child){
+        margin-bottom: 1em;
+        width: 70%;
+        padding: .2em;
+    }
+    td button:last-child{
+        background-color: rgb(223, 83, 83);
+        width: 70%;
+        padding: .2em;
     }
 
     button {
