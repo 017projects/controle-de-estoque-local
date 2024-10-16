@@ -7,6 +7,8 @@ function verificarLogin() {
 }
 verificarLogin();
 
+const ex1 = localStorage.getItem('user');
+
 const acData = new Date();
 const aDia = acData.getDay(); 
 const aMes = acData.getMonth();
@@ -31,12 +33,12 @@ document.getElementById('itemDate').value = new Date().toISOString().split('T')[
 const DB_NAME = 'estoqueDB';
 let db;
 let currentEditId = null;
-const databases = [ex1+', Lista 1', ex1+', Lista 2', ex1+', Lista 3'];
+const databases = [ex1 + ', Lista 1', ex1 + ', Lista 2', ex1 + ', Lista 3'];
 let currentDatabase = databases[0];
 let allItems = [];
 
 const openDatabase = () => {
-    const request = indexedDB.open(DB_NAME, 17);
+    const request = indexedDB.open(DB_NAME, 16);
     request.onerror = () => console.error('Erro ao abrir o banco de dados');
     request.onsuccess = () => {
         db = request.result;
@@ -47,6 +49,7 @@ const openDatabase = () => {
         databases.forEach(name => {
             if (!db.objectStoreNames.contains(name)) {
                 db.createObjectStore(name, { keyPath: 'id', autoIncrement: true });
+                console.log(`Object store "${name}" criado.`);
             }
         });
     };
@@ -294,6 +297,7 @@ const importCSV = () => {
 
 document.getElementById('logout-user').addEventListener('click', function(){
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     window.location.href = 'index.html';
 });
 
