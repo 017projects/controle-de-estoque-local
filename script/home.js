@@ -31,12 +31,12 @@ document.getElementById('itemDate').value = new Date().toISOString().split('T')[
 const DB_NAME = 'estoqueDB';
 let db;
 let currentEditId = null;
-const databases = ['Lista 1', 'Lista 2', 'Lista 3'];
+const databases = [ex1+', Lista 1', ex1+', Lista 2', ex1+', Lista 3'];
 let currentDatabase = databases[0];
 let allItems = [];
 
 const openDatabase = () => {
-    const request = indexedDB.open(DB_NAME, 2);
+    const request = indexedDB.open(DB_NAME, 11);
     request.onerror = () => console.error('Erro ao abrir o banco de dados');
     request.onsuccess = () => {
         db = request.result;
@@ -105,19 +105,19 @@ const loadItems = () => {
     const request = store.getAll();
     request.onsuccess = (event) => {
         allItems = event.target.result;
-        displayItems(allItems);
+        displayItems(allItems); // Exibe os itens carregados
     };
     transaction.onerror = () => console.error('Erro ao carregar itens');
 };
 
 const displayItems = (items) => {
     const tbody = document.querySelector('#inventoryTable tbody');
-    tbody.innerHTML = '';
+    tbody.innerHTML = ''; // Limpa a tabela antes de exibir novos dados
     items.forEach(item => {
         const row = tbody.insertRow();
         row.insertCell(0).textContent = item.name;
         row.insertCell(1).textContent = item.quantity;
-        row.insertCell(2).textContent = item.date.split('-').reverse().join('/');
+        row.insertCell(2).textContent = item.date;
         const actionsCell = row.insertCell(3);
 
         const incrementButton = document.createElement('button');
