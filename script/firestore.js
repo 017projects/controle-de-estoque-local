@@ -14,13 +14,13 @@ if(ex1 === "Gabriele Avila"){
 
 
 const firebaseConfig = {
-      apiKey: "AIzaSyC5B4Hkp2Uca5OXYvWBOtsNGpEluHrErZQ",
-      authDomain: "controle-de-estoque-ga.firebaseapp.com",
-      projectId: "controle-de-estoque-ga",
-      storageBucket: "controle-de-estoque-ga.appspot.com",
-      messagingSenderId: "680589320141",
-      appId: "1:680589320141:web:a9b66e8796aeb530fdae84"
-    };
+    apiKey: "AIzaSyC5B4Hkp2Uca5OXYvWBOtsNGpEluHrErZQ",
+    authDomain: "controle-de-estoque-ga.firebaseapp.com",
+    projectId: "controle-de-estoque-ga",
+    storageBucket: "controle-de-estoque-ga.appspot.com",
+    messagingSenderId: "680589320141",
+    appId: "1:680589320141:web:a9b66e8796aeb530fdae84"
+  };
   
     // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -369,9 +369,11 @@ const importDataFromFirestore = async (collectionName) => {
             const request = objectStore.put(item);
             request.onsuccess = () => {
                 console.log(`Documento ${item.id} importado com sucesso para o IndexedDB!`);
+                alert('Dados importados com sucesso!')
             };
             request.onerror = (event) => {
                 console.error(`Erro ao importar o documento ${item.id}:`, event.target.error);
+                alert('Erro ao importar dados');
             };
         });
 
@@ -382,6 +384,7 @@ const importDataFromFirestore = async (collectionName) => {
 
     } catch (error) {
         console.error("Erro ao importar dados do Firestore:", error);
+        alert('Falha na importação do Firestore', error);
     }
 };
 
@@ -392,5 +395,3 @@ document.getElementById('importDataButton').addEventListener('click', function()
         importDataFromFirestore(`${ex1}, ${collectionName}`);
     });
 });
-
-window.onload = openDatabase();
