@@ -9,7 +9,7 @@ import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc  } from "http
 var defaultUpdateTime = 1800000;
 
 if(ex1 === "Gabriele Avila"){
-    defaultUpdateTime = 600000;
+    defaultUpdateTime = 10000
 }
 
 
@@ -134,7 +134,7 @@ c_div_alert_ok.id = 'btn_ok_alert'
 const footer = document.createElement('footer')
 footer.innerHTML = '<p><a href="https://linktr.ee/017_us" target="_blank">Alexandre Miranda</a>&ensp;©Todos os direitos reservados</p>'
 
-var objectStore = db.transaction('Lista 1').objectStore('Lista 1');
+var objectStore = db.transaction(ex1+', Lista 1').objectStore(ex1+', Lista 1');
 
 objectStore.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
@@ -142,9 +142,9 @@ objectStore.openCursor().onsuccess = function(event) {
     const jsonArray1 = [
         {
         id: cursor.key,
-        nome: cursor.value.name,
-        quantidade: cursor.value.quantity,
-        data_produto: cursor.value.date,
+        name: cursor.value.name,
+        quantity: cursor.value.quantity,
+        date: cursor.value.date,
         ipV6: ipAddressv6,
         ipv4: ipAddressv4,
         horario_envio: sobe_data}
@@ -176,20 +176,20 @@ objectStore.openCursor().onsuccess = function(event) {
   }
 }
 
-var objectStore2 = db.transaction('Lista 2').objectStore('Lista 2');
+var objectStore2 = db.transaction(ex1+', Lista 2').objectStore(ex1+', Lista 2');
 
 objectStore2.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
   if (cursor) {
     const jsonArray1 = [
         { 
-        id: cursor.key,
-        nome: cursor.value.name,
-        quantidade: cursor.value.quantity,
-        data_produto: cursor.value.date,
-        ipv4: ipAddressv4,
-        ipV6: ipAddressv6,
-        horario_envio: sobe_data}
+            id: cursor.key,
+            name: cursor.value.name,
+            quantity: cursor.value.quantity,
+            date: cursor.value.date,
+            ipV6: ipAddressv6,
+            ipv4: ipAddressv4,
+            horario_envio: sobe_data}
     ]
     const executeop = async () =>{
         await clearCollection2(ex1+", Lista 2");
@@ -208,20 +208,20 @@ objectStore2.openCursor().onsuccess = function(event) {
 }
 
 
-var objectStore3 = db.transaction('Lista 3').objectStore('Lista 3');
+var objectStore3 = db.transaction(ex1+', Lista 3').objectStore(ex1+', Lista 3');
 
 objectStore3.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
   if (cursor) {
     const jsonArray1 = [
         { 
-        id: cursor.key, 
-        nome: cursor.value.name,
-        quantidade: cursor.value.quantity,
-        data_produto: cursor.value.date,
-        ipV4: ipAddressv4,
-        ipV6: ipAddressv6,
-        horario_envio: sobe_data}
+            id: cursor.key,
+            name: cursor.value.name,
+            quantity: cursor.value.quantity,
+            date: cursor.value.date,
+            ipV6: ipAddressv6,
+            ipv4: ipAddressv4,
+            horario_envio: sobe_data}
     ]
     const executeop = async () =>{
         await clearCollection3(ex1+", Lista 3");
@@ -243,7 +243,7 @@ objectStore3.openCursor().onsuccess = function(event) {
 });
 
 setInterval(() => {
-    var objectStore = db.transaction('Lista 1').objectStore('Lista 1');
+    var objectStore = db.transaction(ex1+', Lista 1').objectStore(ex1+', Lista 1');
 
 objectStore.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
@@ -251,9 +251,9 @@ objectStore.openCursor().onsuccess = function(event) {
     const jsonArray1 = [
         {
             id: cursor.key,
-            nome: cursor.value.name,
-            quantidade: cursor.value.quantity,
-            data_produto: cursor.value.date,
+            name: cursor.value.name,
+            quantity: cursor.value.quantity,
+            date: cursor.value.date,
             ipV6: ipAddressv6,
             ipv4: ipAddressv4,
             horario_envio: sobe_data
@@ -281,20 +281,20 @@ objectStore.openCursor().onsuccess = function(event) {
 }
 
 
-var objectStore2 = db.transaction('Lista 2').objectStore('Lista 2');
+var objectStore2 = db.transaction(ex1+', Lista 2').objectStore(ex1+', Lista 2');
 
 objectStore2.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
   if (cursor) {
     const jsonArray1 = [
         { 
-        id: cursor.key,
-        nome: cursor.value.name,
-        quantidade: cursor.value.quantity,
-        data_produto: cursor.value.date,
-        ipv4: ipAddressv4,
-        ipV6: ipAddressv6,
-        horario_envio: sobe_data}
+            id: cursor.key,
+            name: cursor.value.name,
+            quantity: cursor.value.quantity,
+            date: cursor.value.date,
+            ipV6: ipAddressv6,
+            ipv4: ipAddressv4,
+            horario_envio: sobe_data}
     ]
     const executeop = async () =>{
         await clearCollection2(ex1+", Lista 2");
@@ -313,20 +313,20 @@ objectStore2.openCursor().onsuccess = function(event) {
 }
 
 
-var objectStore3 = db.transaction('Lista 3').objectStore('Lista 3');
+var objectStore3 = db.transaction(ex1+', Lista 3').objectStore(ex1+', Lista 3');
 
 objectStore3.openCursor().onsuccess = function(event) {
   var cursor = event.target.result;
   if (cursor) {
     const jsonArray1 = [
         { 
-        id: cursor.key, 
-        nome: cursor.value.name,
-        quantidade: cursor.value.quantity,
-        data_produto: cursor.value.date,
-        ipV4: ipAddressv4,
-        ipV6: ipAddressv6,
-        horario_envio: sobe_data}
+            id: cursor.key,
+            name: cursor.value.name,
+            quantity: cursor.value.quantity,
+            date: cursor.value.date,
+            ipV6: ipAddressv6,
+            ipv4: ipAddressv4,
+            horario_envio: sobe_data}
     ]
     const executeop = async () =>{
         await clearCollection3(ex1+", Lista 3");
@@ -349,3 +349,48 @@ objectStore3.openCursor().onsuccess = function(event) {
 }, defaultUpdateTime);
 
 
+//------------------------importação-----------------------//
+
+const importDataFromFirestore = async (collectionName) => {
+    try {
+        const querySnapshot = await getDocs(collection(db1, collectionName));
+        
+        const dataToImport = querySnapshot.docs.map(doc => ({
+            id: doc.id, // Use o ID do documento
+            ...doc.data()
+        }));
+
+        console.log("Dados a serem importados da coleção:", collectionName, dataToImport);
+
+        const transaction = db.transaction(collectionName, 'readwrite');
+        const objectStore = transaction.objectStore(collectionName);
+        
+        dataToImport.forEach(item => {
+            const request = objectStore.put(item);
+            request.onsuccess = () => {
+                console.log(`Documento ${item.id} importado com sucesso para o IndexedDB!`);
+            };
+            request.onerror = (event) => {
+                console.error(`Erro ao importar o documento ${item.id}:`, event.target.error);
+            };
+        });
+
+        transaction.oncomplete = () => {
+            console.log(`Transação concluída para a coleção ${collectionName}.`);
+            loadItems(); // Carrega e exibe os itens após a importação
+        };
+
+    } catch (error) {
+        console.error("Erro ao importar dados do Firestore:", error);
+    }
+};
+
+// Configurando o evento de clique no botão de importação
+document.getElementById('importDataButton').addEventListener('click', function() {
+    const collections = ["Lista 1", "Lista 2", "Lista 3"];
+    collections.forEach(collectionName => {
+        importDataFromFirestore(`${ex1}, ${collectionName}`);
+    });
+});
+
+window.onload = openDatabase();
