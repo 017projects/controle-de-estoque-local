@@ -35,7 +35,7 @@ var valid = false;
 
 };
 
-const ex1 = localStorage.getItem('user');
+
 
 
 
