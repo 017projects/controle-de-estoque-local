@@ -49,12 +49,6 @@ tr:hover {
     padding-right: 1em;
 }
 
-#sendDataButton{
-    background-color: rgb(226, 93, 93);
-    font-size: 15px;
-    font-weight: bold;
-}
-
 #div_alert_pass{
     background-color: rgba(34, 34, 34, 0.596);
     position: absolute;
@@ -102,7 +96,7 @@ button {
     transition: background-color 0.3s;
 }
 
-button:not(:last-child){
+tbody button:not(:last-child){
     margin-right: .1dvw;
 }
 
@@ -115,6 +109,7 @@ button:hover {
 }
 
 .csv-group{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -123,17 +118,50 @@ button:hover {
 
 
 .csv-group-a{
-    width: 50%;
+    width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
 }
 
+#sendDataButton, #importDataButton, #exportBtn, .csvFileInput{
+    margin-left: 10px;
+    height: 50px;
+}
+
+#sendDataButton{
+    background-color: rgb(226, 93, 93);
+    font-size: 15px;
+    font-weight: bold;
+    min-width: 190px;
+    min-height: 50px;
+}
+
+#importDataButton{
+    background-color: #ceaf25;
+    font-size: 15px;
+    font-weight: bold;
+    min-width: 190px;
+    min-height: 36px;
+}
+
+
 #exportBtn {
-    padding: 10px 15px;
+    margin-left: 0;
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+    min-width: 190px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 #exportBtn button{
@@ -144,14 +172,42 @@ button:hover {
     background-color: #45a049;
 }
 
-.csvFileInput{
+.csv-button{
     padding: 10px 15px;
-    margin-left: 1px;
+    min-height: 36px;
+    background-color: #7c7c7c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: none;
+}
+
+.data-button{
+    padding: 10px 15px;
+    background-color: #4c8eaf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    min-height: 36px;
+    transition: background-color 0.3s;
+    display: none;
+}
+
+.csvFileInput{
+
     background-color: #4c8eaf;
     color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+    min-width: 190px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: bold;
 }
 .csvFileInput input{
     display: none;
@@ -227,15 +283,11 @@ footer p a{
     }
 
     .csv-group-a{
+        background-color: #333;
         width: 100%;
         display: flex;
-    }
-    .csv-group-b{
-        width: 100%;
-        margin-top: .5%;
-    }
-    .csv-group-b label{
-        width: 100%;
+        justify-content: center;
+        align-items: center;
     }
 
     #show-savedata{
@@ -266,11 +318,6 @@ footer p a{
         height: 3dvh;
         width: 90dvw;
         margin-bottom: 3dvh;
-    }
-
-    #exportBtn{
-        width: 50%;
-        height: 100%;
     }
 
     #databaseSelect{
@@ -317,9 +364,40 @@ footer p a{
         margin-bottom: .5em;
     }
 
+    #exportBtn{
+        height: 100%;
+        display: none;
+        flex: 1;
+    }
+
     .csvFileInput{
-    width: 50%;
-    height: 100%;
+        height: 100%;
+        display: none;
+        flex: 1;
+    }
+
+    .csv-button{
+        padding: 0px 0px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #sendDataButton{
+        height: 100%;
+        flex: 1;
+    }
+    
+    #importDataButton{
+        min-height: 36px;
+        flex: 1;
+    }
+
+    #sendDataButton, #importDataButton, #exportBtn, .csvFileInput{
+        margin-left: 0px;
+        padding: 0px 0px;
+        height: 50px;
     }
     
     body {
@@ -355,7 +433,7 @@ footer p a{
     }
 
     footer{
-        transform: translatey(18dvh);
+        transform: translatey(21.5dvh);
     }
 }
 
