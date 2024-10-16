@@ -27,7 +27,11 @@
     </div>
     
     <div class="csv-group">
+        <label class="csv-button" onclick="changeAction(this)" data-action="acaoUm">
+            <b>CSV</b>
+        </label>
         <div class="csv-group-a">
+            
             <label id="exportBtn" onclick="exportToCSV()">
                 <b>Exportar para CSV</b>
             </label>
@@ -35,13 +39,11 @@
                 <b>Importar arquivo CSV</b>
                 <input type="file" id="csvFileInput" accept=".csv" onchange="importCSV()" />
             </label>
-        </div>
-        <div class="csv-group-b">
             <button id="sendDataButton">Enviar Data</button>
             <button id="importDataButton">Recuperar Dados</button>
-            <div id="mensagem"></div>
         </div>
     </div>
+    
 
     <p id="showUser"></p>
 
@@ -67,6 +69,7 @@
 
 <script type="module" src="script/firestore.js"></script>
 <script src="script/home.js"></script>
+<script src="script/change_css.js"></script>
 <script src="script/ip.js"></script>
 
 </html>
