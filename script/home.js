@@ -36,7 +36,7 @@ let currentDatabase = databases[0];
 let allItems = [];
 
 const openDatabase = () => {
-    const request = indexedDB.open(DB_NAME, 11);
+    const request = indexedDB.open(DB_NAME, 16);
     request.onerror = () => console.error('Erro ao abrir o banco de dados');
     request.onsuccess = () => {
         db = request.result;
